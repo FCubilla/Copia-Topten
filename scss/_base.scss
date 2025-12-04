@@ -1,0 +1,38 @@
+@use "_variables" as *;
+
+/* Reset y estilos base */
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: $font-family-primary;
+    margin: 0;
+    padding: 0;
+    line-height: 1.4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: $text-dark;
+}
+
+/* Utilidades tipo Bootstrap */
+.container {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $spacing-md;
+    padding-right: $spacing-md;
+    box-sizing: border-box;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Variables CSS */
+:root {
+    --text-color: $text-dark;
+}

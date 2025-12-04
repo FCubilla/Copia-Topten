@@ -1,0 +1,23 @@
+// Importar variables primero
+@use "variables" as *;
+
+// Importar utilidades (mixins y extends)
+@use "utilities/mixin" as *;
+@use "utilities/extend" as *;
+
+// Importar estilos base
+@use "base";
+@use "header";
+@use "footer";
+
+// Importar componentes
+@use "components/cards";
+@use "components/buttons";
+@use "components/forms";
+
+// Importar páginas
+@use "pages/index";
+@use "pages/clases";
+@use "pages/jugadores";
+@use "pages/partidos";
+@use "pages/sobre-nosotros";

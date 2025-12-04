@@ -1,0 +1,26 @@
+@use "../_variables" as *;
+
+/* Cards reutilizables */
+.card {
+    background: $white;
+    border-radius: $border-radius-md;
+    box-shadow: $shadow-sm;
+    overflow: hidden;
+}
+
+.description-box {
+    max-width: 800px;
+    margin: $spacing-xl;
+    padding: $spacing-lg;
+    background: $background-card;
+    border-radius: $border-radius-xl;
+    box-shadow: $shadow-md;
+    font-family: $font-family-primary;
+}
+
+.partido-card {
+    background: $white;
+    border-radius: $border-radius-md;
+    box-shadow: $shadow-sm;
+    overflow: hidden;
+}

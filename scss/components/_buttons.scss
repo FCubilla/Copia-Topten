@@ -1,0 +1,30 @@
+@use "../_variables" as *;
+
+/* Botones reutilizables */
+button,
+.btn {
+    padding: $spacing-xs $spacing-sm;
+    border-radius: $border-radius-sm;
+    border: none;
+    cursor: pointer;
+    transition: background $transition-default, color $transition-default;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background: $primary-color;
+    color: $white;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+.btn-secondary {
+    background: $background-light;
+    color: $primary-color;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}

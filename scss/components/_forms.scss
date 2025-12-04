@@ -1,0 +1,43 @@
+@use "../_variables" as *;
+
+/* Formularios reutilizables */
+.form-grupo {
+    flex: 1;
+    min-width: 200px;
+}
+
+.form-grupo label {
+    display: block;
+    margin-bottom: $spacing-xs;
+    font-weight: 600;
+    color: $text-dark;
+}
+
+.form-grupo input,
+.form-grupo select {
+    width: 100%;
+    padding: $spacing-xs $spacing-sm;
+    border: 1px solid #ddd;
+    border-radius: $border-radius-sm;
+    font-family: $font-family-primary;
+    box-sizing: border-box;
+
+    &:focus {
+        outline: none;
+        border-color: $primary-color;
+        box-shadow: 0 0 0 2px rgba($primary-color, 0.1);
+    }
+}
+
+.filtros-container {
+    display: flex;
+    gap: $spacing-md;
+    flex-wrap: wrap;
+}
+
+.filtros-jugadores {
+    background: $background-light;
+    padding: $spacing-lg;
+    border-radius: $border-radius-md;
+    margin-bottom: $spacing-xl;
+}

@@ -1,0 +1,47 @@
+// Variables principales del proyecto
+
+// Colores
+$primary-color: #0a3d62;
+$primary-light: #cfe8ff;
+$background-light: #f5f8fa;
+$background-card: #abbcc9;
+$text-dark: black;
+$text-light: #f7f4f4;
+$white: #fff;
+$shadow-dark: rgba(10, 61, 98, 0.15);
+$shadow-light: rgba(0, 0, 0, 0.1);
+
+// Tipografía
+$font-family-primary: Arial, Helvetica, sans-serif;
+$font-family-secondary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+// Espacios (padding, margin)
+$spacing-xs: 8px;
+$spacing-sm: 12px;
+$spacing-md: 16px;
+$spacing-lg: 20px;
+$spacing-xl: 24px;
+$spacing-2xl: 28px;
+$spacing-3xl: 32px;
+$spacing-4xl: 40px;
+
+// Breakpoints responsive
+$breakpoint-mobile: 600px;
+$breakpoint-tablet: 1024px;
+
+// Bordes
+$border-radius-sm: 6px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+$border-radius-xl: 20px;
+$border-radius-full: 30px;
+
+// Transiciones
+$transition-default: 150ms;
+$transition-fast: 100ms;
+$transition-slow: 300ms;
+
+// Sombras
+$shadow-sm: 0 2px 8px $shadow-light;
+$shadow-md: 0 4px 12px $shadow-light;
+$shadow-lg: 0 12px 32px $shadow-dark;

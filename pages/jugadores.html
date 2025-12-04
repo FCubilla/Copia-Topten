@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jugadores - Topten</title>
+    <meta name="description" content="Encuentra y conecta con otros jugadores de pádel en Topten conectado. Filtra por nivel y disponibilidad para organizar partidos fácilmente.">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <!-- Header igual al de index.html -->
+    <header>
+        <div class="container">
+            <div class="header-inner">
+            <h1>Topten conectado</h1>
+            <nav role="navigation" aria-label="Navegación principal">
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="clases.html">Clases</a></li>
+                    <li><a href="jugadores.html" class="active">Jugadores</a></li>
+                    <li><a href="partidos.html">Partidos</a></li>
+                    <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+                </ul>
+            </nav>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+        <!-- Sección de filtros -->
+        <section class="filtros-jugadores">
+            <h2>Buscar Jugadores</h2>
+            <div class="filtros-container">
+                <div class="form-grupo">
+                    <label for="nivel">Nivel:</label>
+                    <select id="nivel">
+                        <option value="todos">Todos los niveles</option>
+                        <option value="principiante">Principiante</option>
+                        <option value="intermedio">Intermedio</option>
+                        <option value="avanzado">Avanzado</option>
+                    </select>
+                </div>
+                <div class="form-grupo">
+                    <label for="disponibilidad">Disponibilidad:</label>
+                    <select id="disponibilidad">
+                        <option value="todos">Cualquier horario</option>
+                        <option value="manana">Mañana</option>
+                        <option value="tarde">Tarde</option>
+                        <option value="noche">Noche</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de jugadores -->
+        <section class="jugadores-grid">
+            <!-- tarjeta de jugador -->
+            <article class="jugador-card">
+                <img src="../assets/img/avatar-default.jpg" alt="Foto de perfil" class="jugador-avatar img-fluid" loading="lazy">
+                <div class="jugador-info">
+                    <h3>Ana García</h3>
+                    <ul>
+                        <li><strong>Nivel:</strong> Intermedio</li>
+                        <li><strong>Partidos jugados:</strong> 25</li>
+                        <li><strong>Victorias:</strong> 15</li>
+                    </ul>
+                    <div class="disponibilidad">
+                        <span class="tag">Tarde</span>
+                        <span class="tag">Fin de semana</span>
+                    </div>
+                    <button class="boton-contacto">Contactar</button>
+                </div>
+            </article>
+
+            <article class="jugador-card">
+                <img src="../assets/img/avatar-default.jpg" alt="Foto de perfil" class="jugador-avatar img-fluid" loading="lazy">
+                <div class="jugador-info">
+                    <h3>Carlos Rodríguez</h3>
+                    <ul>
+                        <li><strong>Nivel:</strong> Avanzado</li>
+                        <li><strong>Partidos jugados:</strong> 42</li>
+                        <li><strong>Victorias:</strong> 28</li>
+                    </ul>
+                    <div class="disponibilidad">
+                        <span class="tag">Mañana</span>
+                        <span class="tag">Noche</span>
+                    </div>
+                    <button class="boton-contacto">Contactar</button>
+                </div>
+            </article>
+        </section>
+        </div>
+
+        <!-- Sección de rankings -->
+        <section class="rankings">
+            <h2>Rankings</h2>
+            <div class="rankings-container">
+                <div class="ranking-column">
+                    <h3>Top Jugadores del Mes</h3>
+                    <ol class="ranking-list">
+                        <li>
+                            <span class="posicion">1</span>
+                            <span class="nombre">Carlos Rodríguez</span>
+                            <span class="puntos">150 pts</span>
+                        </li>
+                        <li>
+                            <span class="posicion">2</span>
+                            <span class="nombre">Ana García</span>
+                            <span class="puntos">125 pts</span>
+                        </li>
+                        <li>
+                            <span class="posicion">3</span>
+                            <span class="nombre">Miguel López</span>
+                            <span class="puntos">100 pts</span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer igual al de index.html -->
+    <footer>
+        <div class="footer-inner">
+            <p>&copy; 2025 Topten conectado. Todos los derechos reservados.</p>
+            <nav aria-label="Enlaces de pie de página">
+                <a href="sobre-nosotros.html">Sobre nosotros</a>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>

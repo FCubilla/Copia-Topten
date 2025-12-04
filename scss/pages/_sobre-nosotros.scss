@@ -1,0 +1,27 @@
+@use "../_variables" as *;
+
+header h1 {
+    font-size: 28px;
+    margin-bottom: $spacing-sm;
+}
+
+div.sobre-nosotros-texto {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: $spacing-lg;
+    background: $background-card;
+    border-radius: $border-radius-xl;
+    box-shadow: $shadow-md;
+    font-family: $font-family-secondary;
+}
+
+p {
+    color: var(--text-color);
+    font-size: 18px;
+    margin-bottom: $spacing-md;
+}
+h2 {
+    color: var(--text-color);
+    margin-top: 24px;
+    margin-bottom: 12px;
+}

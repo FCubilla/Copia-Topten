@@ -1,0 +1,73 @@
+@use "_variables" as *;
+
+header {
+    background: $primary-color;
+    color: $text-light;
+    padding: $spacing-sm $spacing-lg;
+}
+
+/* Título a la izquierda, navegación a la derecha */
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $spacing-md;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 20px;
+}
+
+/* Navegación: estilo horizontal y sin marcadores */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: $spacing-xs;
+    align-items: center;
+}
+
+nav li {
+    margin: 0;
+}
+
+nav a {
+    display: inline-block;
+    color: $primary-light;
+    text-decoration: none;
+    padding: $spacing-xs $spacing-sm;
+    border-radius: $border-radius-sm;
+    transition: background $transition-default, color $transition-default;
+    font-weight: 600;
+}
+
+nav a:focus,
+nav a:hover {
+    background: rgba(255, 255, 255, 0.12);
+    outline: none;
+}
+
+nav a.active {
+    background: $white;
+    color: $primary-color;
+}
+
+/* Responsive: en pantallas pequeñas, apilar elementos */
+@media (max-width: $breakpoint-mobile) {
+    .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav a {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}

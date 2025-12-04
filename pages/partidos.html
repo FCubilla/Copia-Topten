@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partidos - Topten</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <!-- Header igual al de index.html -->
+    <header>
+        <div class="container">
+            <div class="header-inner">
+            <h1>Topten conectado</h1>
+            <nav role="navigation" aria-label="Navegación principal">
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="clases.html">Clases</a></li>
+                    <li><a href="jugadores.html">Jugadores</a></li>
+                    <li><a href="partidos.html" class="active">Partidos</a></li>
+                    <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+                </ul>
+            </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+        <!-- Sección de próximos partidos -->
+        <section class="proximos-partidos">
+            <h2>Próximos Partidos</h2>
+            <div class="partidos-grid">
+                <!-- Ejemplo de tarjeta de partido -->
+                <article class="partido-card">
+                    <div class="partido-header">
+                        <span class="fecha">Hoy - 18:00</span>
+                        <span class="estado disponible">Cupos disponibles</span>
+                    </div>
+                    <div class="partido-info">
+                        <h3>Partido Nivel Intermedio</h3>
+                        <ul>
+                            <li>Cancha: 2</li>
+                            <li>Cupos: 2/4</li>
+                            <li>Precio: $2000</li>
+                        </ul>
+                        <a href="#reservar" class="boton-reserva">Reservar lugar</a>
+                    </div>
+                </article>
+                <!-- Más tarjetas de partidos... -->
+            </div>
+        </section>
+
+        <!-- Sección de canchas disponibles -->
+        <section class="canchas">
+            <h2>Nuestras Canchas</h2>
+            <div class="canchas-grid">
+                <!-- Ejemplo de tarj de cancha -->
+                <article class="cancha-card">
+                    <img src="../assets/img/cancha1.jpg" alt="Cancha 1" class="cancha-imagen img-fluid" loading="lazy">
+                    <div class="cancha-info">
+                        <h3>Cancha 1</h3>
+                        <ul>
+                            <li>Estado: Disponible</li>
+                        </ul>
+                        <table class="horarios">
+                            <caption>Horarios disponibles hoy</caption>
+                            <tr>
+                                <td class="libre">16:00</td>
+                                <td class="ocupado">17:00</td>
+                                <td class="libre">18:00</td>
+                            </tr>
+                        </table>
+                    </div>
+                </article>
+                <!-- Más tarj de canchas... -->
+            </div>
+        </section>
+
+        <!-- Sección de reservas -->
+        <section class="reservas" id="reservar">
+            <h2>Hacer una Reserva</h2>
+            <form class="formulario-reserva">
+                <div class="form-grupo">
+                    <label for="fecha">Fecha:</label>
+                    <input type="date" id="fecha" name="fecha" required>
+                </div>
+                <div class="form-grupo">
+                    <label for="cancha">Cancha:</label>
+                    <select id="cancha" name="cancha" required>
+                        <option value="">Seleccionar cancha</option>
+                        <option value="1">Cancha 1</option>
+                        <option value="2">Cancha 2</option>
+                    </select>
+                </div>
+                <div class="form-grupo">
+                    <label for="horario">Horario:</label>
+                    <select id="horario" name="horario" required>
+                        <option value="">Seleccionar horario</option>
+                        <option value="16">16:00</option>
+                        <option value="17">17:00</option>
+                        <option value="18">18:00</option>
+                    </select>
+                </div>
+                <button type="submit" class="boton-enviar">Reservar</button>
+            </form>
+        </section>
+        </div>
+    </main>
+
+    <!-- Footer igual al de index.html -->
+    <footer>
+        <div class="footer-inner">
+            <p>&copy; 2025 Topten conectado. Todos los derechos reservados.</p>
+            <nav aria-label="Enlaces de pie de página">
+                <a href="sobre-nosotros.html">Sobre nosotros</a>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>
