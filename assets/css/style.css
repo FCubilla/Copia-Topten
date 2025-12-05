@@ -1,35 +1,35 @@
 @charset "UTF-8";
 /* Mixins reutilizables */
 /* Extends reutilizables - clases base que heredan estilos */
-.partidos .partido-card-info ul, .jugadores .jugador-card__info ul {
+.partido-card-info ul, .jugador-info ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.partidos .partido-card-header .fecha {
+.partido-card-header .fecha {
   transition: all 100ms ease-in-out;
 }
 
-.partidos .partido-card, .partidos-canchas .cancha-card, .jugadores .jugador-card {
+.partido-card, .cancha-card, .jugador-card {
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
 
-.clases-description {
+.description-box {
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 12px 32px rgba(10, 61, 98, 0.15);
   overflow: hidden;
 }
 
-.partidos .partido-card-header {
+.partido-card-header {
   background: #f5f8fa;
 }
 
-.partidos .partido-card-header .estado {
+.partido-card-header .estado {
   border-radius: 8px;
 }
 
@@ -329,7 +329,7 @@ main {
   line-height: 1.6;
 }
 
-.clases-description {
+.description-box {
   max-width: 800px;
   margin: 24px;
   padding: 20px;
@@ -345,51 +345,34 @@ main {
   gap: 24px;
   margin: 24px 0;
 }
-.jugadores .jugador-card {
+
+.jugador-card {
   display: flex;
   flex-direction: column;
 }
-.jugadores .jugador-card__avatar {
+
+.jugador-avatar {
   width: 100%;
   height: 200px;
   object-fit: cover;
 }
-.jugadores .jugador-card__info {
+
+.jugador-info {
   padding: 16px;
 }
-.jugadores .jugador-card__info h3 {
+.jugador-info h3 {
   margin: 0 0 12px 0;
   color: #0a3d62;
 }
-.jugadores .jugador-card__info ul {
+.jugador-info ul {
   margin: 0 0 16px 0;
 }
-.jugadores .jugador-card__info li {
+.jugador-info li {
   margin-bottom: 8px;
   color: #666;
 }
-.jugadores .jugador-card__info .boton-contacto {
-  display: block;
-  width: 100%;
-  padding: 8px 12px;
-  background: #0a3d62;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background 150ms;
-}
-.jugadores .jugador-card__info .boton-contacto:hover {
-  opacity: 0.9;
-}
-.jugadores .jugador-card__info .boton-contacto:active {
-  transform: scale(0.98);
-}
-.jugadores .jugador-card__info .boton-contacto {
-  font-size: 16px;
-}
-.jugadores .disponibilidad {
+
+.disponibilidad {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -398,102 +381,16 @@ main {
   flex-wrap: wrap;
   margin-bottom: 16px;
 }
-.jugadores .tag {
+
+.tag {
   background: #e1f5fe;
   color: #0277bd;
   padding: 4px 8px;
   border-radius: 6px;
   font-size: 14px;
 }
-.jugadores-rankings {
-  background: #f5f8fa;
-  padding: 24px;
-  border-radius: 8px;
-  margin-top: 32px;
-}
-.jugadores-rankings .ranking-list {
-  list-style: none;
-  padding: 0;
-  margin: 16px 0;
-}
-.jugadores-rankings .ranking-list li {
-  display: flex;
-  align-items: center;
-  padding: 12px;
-  background: #fff;
-  margin-bottom: 8px;
-  border-radius: 6px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-.jugadores-rankings .ranking-list .posicion {
-  font-weight: bold;
-  color: #0a3d62;
-  margin-right: 16px;
-  min-width: 24px;
-}
-.jugadores-rankings .ranking-list .nombre {
-  flex: 1;
-}
-.jugadores-rankings .ranking-list .puntos {
-  color: #666;
-  font-weight: 600;
-}
 
-/* Estilos específicos para partidos.html (anidados) */
-@media (max-width: 600px) {
-  .partidos-proximos {
-    margin-bottom: 28px;
-  }
-}
-.partidos-proximos {
-  margin-bottom: 32px;
-}
-.partidos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-  margin: 24px 0;
-}
-.partidos .partido-card-header {
-  padding: 12px 16px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  border-bottom: 1px solid #eee;
-}
-.partidos .partido-card-header .fecha {
-  font-weight: 600;
-  color: #0a3d62;
-}
-.partidos .partido-card-header .estado {
-  font-size: 14px;
-  padding: 4px 8px;
-}
-.partidos .partido-card-header .estado.disponible {
-  background: #e8f5e9;
-  color: #2e7d32;
-}
-.partidos .partido-card-header .estado.completo {
-  background: #ffebee;
-  color: #c62828;
-}
-.partidos .partido-card-info {
-  padding: 16px;
-}
-.partidos .partido-card-info h3 {
-  margin: 0 0 12px 0;
-  color: #0a3d62;
-}
-.partidos .partido-card-info ul {
-  margin: 0 0 16px 0;
-}
-.partidos .partido-card-info li {
-  margin-bottom: 8px;
-  color: #666;
-}
-.partidos .partido-card-info .boton-reserva {
+.boton-contacto {
   display: block;
   width: 100%;
   padding: 8px 12px;
@@ -505,75 +402,110 @@ main {
   font-weight: 600;
   transition: background 150ms;
 }
-.partidos .partido-card-info .boton-reserva:hover {
+.boton-contacto:hover {
   opacity: 0.9;
 }
-.partidos .partido-card-info .boton-reserva:active {
+.boton-contacto:active {
   transform: scale(0.98);
 }
-.partidos .partido-card-info .boton-reserva {
-  text-align: center;
-  text-decoration: none;
+.boton-contacto {
+  font-size: 16px;
 }
-.partidos-canchas {
-  margin-bottom: 32px;
-}
-.partidos-canchas-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-  margin: 24px 0;
-}
-.partidos-canchas .cancha-imagen {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-.partidos-canchas .cancha-info {
-  padding: 16px;
-}
-.partidos-canchas .cancha-info h3 {
-  margin: 0 0 12px 0;
-  color: #0a3d62;
-}
-.partidos-horarios {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 12px;
-}
-.partidos-horarios caption {
-  text-align: left;
-  margin-bottom: 8px;
-  color: #666;
-  font-weight: 600;
-}
-.partidos-horarios td {
-  padding: 8px;
-  text-align: center;
-  border: 1px solid #eee;
-}
-.partidos-horarios td.libre {
-  background: #e8f5e9;
-  color: #2e7d32;
-  cursor: pointer;
-}
-.partidos-horarios td.ocupado {
-  background: #ffebee;
-  color: #c62828;
-}
-.partidos-reservas {
+
+.rankings {
   background: #f5f8fa;
   padding: 24px;
   border-radius: 8px;
   margin-top: 32px;
 }
-.partidos-reservas .formulario-reserva {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
-  margin-top: 16px;
+
+.ranking-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
 }
-.partidos-reservas .boton-enviar {
+.ranking-list li {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  background: #fff;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.ranking-list .posicion {
+  font-weight: bold;
+  color: #0a3d62;
+  margin-right: 16px;
+  min-width: 24px;
+}
+.ranking-list .nombre {
+  flex: 1;
+}
+.ranking-list .puntos {
+  color: #666;
+  font-weight: 600;
+}
+
+/* Estilos específicos para partidos.html (anidados) */
+.proximos-partidos {
+  margin-bottom: 32px;
+}
+@media (max-width: 600px) {
+  .proximos-partidos {
+    margin-bottom: 28px;
+  }
+}
+
+.partidos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin: 24px 0;
+}
+
+.partido-card-header {
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid #eee;
+}
+.partido-card-header .fecha {
+  font-weight: 600;
+  color: #0a3d62;
+}
+.partido-card-header .estado {
+  font-size: 14px;
+  padding: 4px 8px;
+}
+.partido-card-header .estado.disponible {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+.partido-card-header .estado.completo {
+  background: #ffebee;
+  color: #c62828;
+}
+.partido-card-info {
+  padding: 16px;
+}
+.partido-card-info h3 {
+  margin: 0 0 12px 0;
+  color: #0a3d62;
+}
+.partido-card-info ul {
+  margin: 0 0 16px 0;
+}
+.partido-card-info li {
+  margin-bottom: 8px;
+  color: #666;
+}
+.partido-card-info .boton-reserva {
+  display: block;
+  width: 100%;
   padding: 8px 12px;
   background: #0a3d62;
   color: #fff;
@@ -583,13 +515,95 @@ main {
   font-weight: 600;
   transition: background 150ms;
 }
-.partidos-reservas .boton-enviar:hover {
+.partido-card-info .boton-reserva:hover {
   opacity: 0.9;
 }
-.partidos-reservas .boton-enviar:active {
+.partido-card-info .boton-reserva:active {
   transform: scale(0.98);
 }
-.partidos-reservas .boton-enviar {
+.partido-card-info .boton-reserva {
+  text-align: center;
+  text-decoration: none;
+}
+
+.canchas {
+  margin-bottom: 32px;
+}
+.canchas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin: 24px 0;
+}
+
+.cancha-card-imagen {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.cancha-card-info {
+  padding: 16px;
+}
+.cancha-card-info h3 {
+  margin: 0 0 12px 0;
+  color: #0a3d62;
+}
+
+.horarios {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+.horarios caption {
+  text-align: left;
+  margin-bottom: 8px;
+  color: #666;
+  font-weight: 600;
+}
+.horarios td {
+  padding: 8px;
+  text-align: center;
+  border: 1px solid #eee;
+}
+.horarios td.libre {
+  background: #e8f5e9;
+  color: #2e7d32;
+  cursor: pointer;
+}
+.horarios td.ocupado {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.reservas {
+  background: #f5f8fa;
+  padding: 24px;
+  border-radius: 8px;
+  margin-top: 32px;
+}
+.reservas .formulario-reserva {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+.reservas .boton-enviar {
+  padding: 8px 12px;
+  background: #0a3d62;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 150ms;
+}
+.reservas .boton-enviar:hover {
+  opacity: 0.9;
+}
+.reservas .boton-enviar:active {
+  transform: scale(0.98);
+}
+.reservas .boton-enviar {
   padding: 12px 20px;
   font-size: 16px;
 }
@@ -620,3 +634,5 @@ h2 {
   margin-top: 24px;
   margin-bottom: 12px;
 }
+
+/*# sourceMappingURL=style.css.map */
