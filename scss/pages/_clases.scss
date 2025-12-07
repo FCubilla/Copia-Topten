@@ -9,4 +9,10 @@
     background: $background-card;
     border-radius: $border-radius-xl;
     font-family: $font-family-primary;
+    animation: fadeIn 0.8s ease-out;
+    
+    &:hover {
+        transform: scale(1.02);
+        transition: transform 0.3s ease;
+    }
 }

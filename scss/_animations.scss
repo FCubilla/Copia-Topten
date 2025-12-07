@@ -1,0 +1,165 @@
+@use "_variables" as *;
+
+/* Animaciones reutilizables */
+
+// Fade in
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+// Slide in desde abajo
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Slide in desde arriba
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Slide in desde izquierda
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+// Slide in desde derecha
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+// Scale up (zoom in)
+@keyframes scaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+// Bounce
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+// Pulse
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+// Shake
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+// Rotate
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+// Float (flotante)
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+// Skeleton loading (placeholder animado)
+@keyframes shimmer {
+    0% { background-position: -200px 0; }
+    100% { background-position: 200px 0; }
+}
+
+/* Mixins para aplicar animaciones fácilmente */
+
+// Mixin general de animación
+@mixin animate($name, $duration: 0.5s, $timing: ease-out, $delay: 0s, $iteration: 1, $fill: both) {
+    animation: $name $duration $timing $delay $iteration $fill;
+}
+
+// Clases de utilidad para animaciones comunes
+.fade-in {
+    @include animate(fadeIn);
+}
+
+.slide-in-up {
+    @include animate(slideInUp);
+}
+
+.slide-in-down {
+    @include animate(slideInDown);
+}
+
+.slide-in-left {
+    @include animate(slideInLeft);
+}
+
+.slide-in-right {
+    @include animate(slideInRight);
+}
+
+.scale-up {
+    @include animate(scaleUp);
+}
+
+.bounce {
+    @include animate(bounce, 1s, ease-in-out);
+}
+
+.pulse {
+    @include animate(pulse, 1s, ease-in-out, 0s, infinite);
+}
+
+.float {
+    @include animate(float, 3s, ease-in-out, 0s, infinite);
+}
+
+// Delays escalonados para animaciones múltiples
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+
+// Skeleton loader
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200px 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: $border-radius-sm;
+}

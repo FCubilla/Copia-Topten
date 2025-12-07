@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /* Mixins reutilizables */
 /* Extends reutilizables - clases base que heredan estilos */
-.partido-card-info ul, .jugador-info ul {
+.partido-info ul, .jugador-info ul {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -31,6 +31,180 @@
 
 .partido-card-header .estado {
   border-radius: 8px;
+}
+
+/* Animaciones reutilizables */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: 200px 0;
+  }
+}
+/* Mixins para aplicar animaciones fácilmente */
+.fade-in {
+  animation: fadeIn 0.5s ease-out 0s 1 both;
+}
+
+.slide-in-up {
+  animation: slideInUp 0.5s ease-out 0s 1 both;
+}
+
+.slide-in-down {
+  animation: slideInDown 0.5s ease-out 0s 1 both;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.5s ease-out 0s 1 both;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.5s ease-out 0s 1 both;
+}
+
+.scale-up {
+  animation: scaleUp 0.5s ease-out 0s 1 both;
+}
+
+.bounce {
+  animation: bounce 1s ease-in-out 0s 1 both;
+}
+
+.pulse {
+  animation: pulse 1s ease-in-out 0s infinite both;
+}
+
+.float {
+  animation: float 3s ease-in-out 0s infinite both;
+}
+
+.delay-1 {
+  animation-delay: 0.1s;
+}
+
+.delay-2 {
+  animation-delay: 0.2s;
+}
+
+.delay-3 {
+  animation-delay: 0.3s;
+}
+
+.delay-4 {
+  animation-delay: 0.4s;
+}
+
+.delay-5 {
+  animation-delay: 0.5s;
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 6px;
 }
 
 /* Reset y estilos base */
@@ -87,6 +261,7 @@ header {
 header h1 {
   margin: 0;
   font-size: 20px;
+  animation: slideInLeft 0.6s ease-out;
 }
 
 /* Navegación: estilo horizontal y sin marcadores */
@@ -109,7 +284,7 @@ nav a {
   text-decoration: none;
   padding: 8px 12px;
   border-radius: 6px;
-  transition: background 150ms, color 150ms;
+  transition: background 150ms, color 150ms, transform 0.3s ease;
   font-weight: 600;
 }
 
@@ -117,6 +292,7 @@ nav a:focus,
 nav a:hover {
   background: rgba(255, 255, 255, 0.12);
   outline: none;
+  transform: translateY(-2px);
 }
 
 nav a.active {
@@ -206,8 +382,18 @@ button,
   border-radius: 6px;
   border: none;
   cursor: pointer;
-  transition: background 150ms, color 150ms;
+  transition: background 150ms, color 150ms, transform 0.2s ease, box-shadow 0.2s ease;
   font-weight: 600;
+}
+button:hover,
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+button:active,
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary {
@@ -300,6 +486,33 @@ main {
   grid-auto-rows: 140px;
   gap: 10px;
 }
+.gallery-container div {
+  animation: scaleUp 0.6s ease-out backwards;
+}
+.gallery-container div:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.gallery-container div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.gallery-container div:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.gallery-container div:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.gallery-container div:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.gallery-container div:nth-child(6) {
+  animation-delay: 0.6s;
+}
+.gallery-container div:nth-child(7) {
+  animation-delay: 0.7s;
+}
+.gallery-container div:nth-child(8) {
+  animation-delay: 0.8s;
+}
 
 .gallery-container img {
   width: 100%;
@@ -307,6 +520,12 @@ main {
   object-fit: cover;
   display: block;
   border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gallery-container img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 
 /* Texto de bienvenida */
@@ -336,6 +555,11 @@ main {
   background: #abbcc9;
   border-radius: 20px;
   font-family: Arial, Helvetica, sans-serif;
+  animation: fadeIn 0.8s ease-out;
+}
+.description-box:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
 }
 
 /* Estilos específicos para jugadores.html (anidados) */
@@ -345,10 +569,43 @@ main {
   gap: 24px;
   margin: 24px 0;
 }
+.jugadores-grid .jugador-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.jugadores-grid .jugador-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.jugadores-grid .jugador-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.jugadores-grid .jugador-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.jugadores-grid .jugador-card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.jugadores-grid .jugador-card:nth-child(6) {
+  animation-delay: 0.6s;
+}
+.jugadores-grid .jugador-card:nth-child(7) {
+  animation-delay: 0.7s;
+}
+.jugadores-grid .jugador-card:nth-child(8) {
+  animation-delay: 0.8s;
+}
+.jugadores-grid .jugador-card:nth-child(9) {
+  animation-delay: 0.9s;
+}
 
 .jugador-card {
   display: flex;
   flex-direction: column;
+  animation: scaleUp 0.5s ease-out backwards;
+}
+.jugador-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
 }
 
 .jugador-avatar {
@@ -463,7 +720,33 @@ main {
   gap: 24px;
   margin: 24px 0;
 }
+.partidos-grid .partido-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.partidos-grid .partido-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.partidos-grid .partido-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.partidos-grid .partido-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.partidos-grid .partido-card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.partidos-grid .partido-card:nth-child(6) {
+  animation-delay: 0.6s;
+}
 
+.partido-card {
+  animation: slideInUp 0.5s ease-out backwards;
+}
+.partido-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
 .partido-card-header {
   padding: 12px 16px;
   display: flex;
@@ -489,21 +772,22 @@ main {
   background: #ffebee;
   color: #c62828;
 }
-.partido-card-info {
+
+.partido-info {
   padding: 16px;
 }
-.partido-card-info h3 {
+.partido-info h3 {
   margin: 0 0 12px 0;
   color: #0a3d62;
 }
-.partido-card-info ul {
+.partido-info ul {
   margin: 0 0 16px 0;
 }
-.partido-card-info li {
+.partido-info li {
   margin-bottom: 8px;
   color: #666;
 }
-.partido-card-info .boton-reserva {
+.partido-info .boton-reserva {
   display: block;
   width: 100%;
   padding: 8px 12px;
@@ -513,17 +797,18 @@ main {
   border-radius: 6px;
   cursor: pointer;
   font-weight: 600;
-  transition: background 150ms;
-}
-.partido-card-info .boton-reserva:hover {
-  opacity: 0.9;
-}
-.partido-card-info .boton-reserva:active {
-  transform: scale(0.98);
-}
-.partido-card-info .boton-reserva {
   text-align: center;
   text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.partido-info .boton-reserva:hover {
+  background: rgb(12.3611111111, 75.4027777778, 121.1388888889);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.partido-info .boton-reserva:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .canchas {

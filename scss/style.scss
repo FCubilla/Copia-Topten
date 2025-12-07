@@ -5,6 +5,9 @@
 @use "utilities/mixin" as *;
 @use "utilities/extend" as *;
 
+// Importar animaciones
+@use "animations" as *;
+
 // Importar estilos base
 @use "base";
 @use "header";
