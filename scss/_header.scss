@@ -1,17 +1,25 @@
 @use "_variables" as *;
+@use "utilities/mixin" as *;
 
 header {
     background: $primary-color;
     color: $text-light;
     padding: $spacing-sm $spacing-lg;
+    position: relative;
 }
 
-/* Título a la izquierda, navegación a la derecha */
+/* Título a la izquierda, hamburguesa a la derecha */
 .header-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: $spacing-md;
+    position: relative;
+}
+
+.container {
+    position: relative;
+    overflow: visible;
 }
 
 header h1 {
@@ -20,56 +28,112 @@ header h1 {
     animation: slideInLeft 0.6s ease-out;
 }
 
-/* Navegación: estilo horizontal y sin marcadores */
-nav ul {
+/* Ocultar checkbox (truco CSS para menú sin JS) */
+.menu-toggle {
+    display: none;
+}
+
+/* Ícono hamburguesa (visible siempre) */
+.menu-icon {
+    display: block !important;
+    cursor: pointer;
+    color: $text-light;
+    padding: $spacing-xs;
+    transition: transform 0.3s ease;
+    z-index: 100;
+    position: relative;
+    -webkit-tap-highlight-color: transparent;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: $border-radius-sm;
+    
+    &:active {
+        background: rgba(255, 255, 255, 0.2);
+    }
+    
+    &:hover {
+        transform: scale(1.1);
+    }
+    
+    svg {
+        display: block;
+        width: 32px;
+        height: 32px;
+        pointer-events: none;
+        fill: currentColor;
+    }
+}
+
+/* Navegación oculta por defecto */
+header nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: $primary-color;
+    display: none !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 99;
+    min-width: 200px;
+    border-radius: $border-radius-md;
+    margin-top: $spacing-xs;
+}
+
+header nav ul {
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: $spacing-sm 0;
     display: flex;
-    gap: $spacing-xs;
-    align-items: center;
+    flex-direction: column;
+    gap: 0;
 }
 
-nav li {
+header nav li {
     margin: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    
+    &:last-child {
+        border-bottom: none;
+    }
 }
 
-nav a {
-    display: inline-block;
+header nav a {
+    display: block;
     color: $primary-light;
     text-decoration: none;
-    padding: $spacing-xs $spacing-sm;
-    border-radius: $border-radius-sm;
-    transition: background $transition-default, color $transition-default, transform 0.3s ease;
+    padding: $spacing-sm $spacing-md;
+    transition: background $transition-default, color $transition-default, transform 0.2s ease;
     font-weight: 600;
+    white-space: nowrap;
 }
 
-nav a:focus,
-nav a:hover {
-    background: rgba(255, 255, 255, 0.12);
+header nav a:focus,
+header nav a:hover {
+    background: rgba(255, 255, 255, 0.15);
     outline: none;
-    transform: translateY(-2px);
+    transform: translateX(5px);
 }
 
-nav a.active {
-    background: $white;
-    color: $primary-color;
+header nav a.active {
+    background: rgba(255, 255, 255, 0.2);
+    color: $white;
 }
 
-/* Responsive: en pantallas pequeñas, apilar elementos */
-@media (max-width: $breakpoint-mobile) {
-    .header-inner {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+/* Cuando checkbox está marcado, mostrar menú */
+.menu-toggle:checked ~ nav {
+    display: block !important;
+}
 
-    nav ul {
-        flex-direction: column;
-        width: 100%;
+/* RESPONSIVE: Ajustes para móvil */
+@include responsive('mobile') {
+    header nav {
+        left: 0;
+        right: 0;
+        min-width: auto;
+        border-radius: 0;
+        margin-top: 0;
     }
-
-    nav a {
-        width: 100%;
-        box-sizing: border-box;
+    
+    header nav a {
+        padding: $spacing-md $spacing-lg;
     }
 }
+
