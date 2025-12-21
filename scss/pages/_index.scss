@@ -1,5 +1,14 @@
 @use "../_variables" as *;
 
+/* Fondo fijo de la página */
+body {
+    background-image: url('../../assets/img/paleta-padel.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 /* El main ocupa el espacio restante para empujar el footer al fondo cuando la página es corta */
 main {
     flex: 1 0 auto;
@@ -12,8 +21,6 @@ main {
     justify-content: center;
     align-items: center;
     margin: 0 (-$spacing-lg) $spacing-3xl;
-    padding: $spacing-lg;
-    background: $background-light;
 }
 
 .imagen-principal img {
@@ -67,13 +74,15 @@ main {
 }
 
 .welcome-text h2 {
-    color: $primary-color;
+    color: white;
     font-size: 2.5em;
     margin-bottom: $spacing-md;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
 }
 
 .welcome-text p {
-    color: var(--text-color);
+    color: white;
     font-size: 1.2em;
     line-height: 1.6;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
 }

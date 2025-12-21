@@ -4,6 +4,94 @@
 @use "../utilities/extend" as *;
 
 /* Estilos específicos para jugadores.html (anidados) */
+
+// Ocultar los inputs de radio de forma accesible
+input[type="radio"][name="nivel"],
+input[type="radio"][name="disponibilidad"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+// Mejorar visibilidad del texto sobre el fondo
+.filtros-jugadores {
+    h2 {
+        color: white;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    }
+    
+    label {
+        color: white;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+        font-weight: 600;
+    }
+
+    .filtro-titulo {
+        color: white;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+        font-weight: 600;
+        margin-bottom: $spacing-sm;
+    }
+
+    .radio-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $spacing-sm;
+        
+        label {
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: $border-radius-sm;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            
+            &:hover {
+                background: rgba(255, 255, 255, 0.3);
+                transform: translateY(-2px);
+            }
+        }
+    }
+}
+
+// Estilos cuando los radios están seleccionados
+#nivel-todos:checked ~ main .filtros-jugadores label[for="nivel-todos"],
+#nivel-principiante:checked ~ main .filtros-jugadores label[for="nivel-principiante"],
+#nivel-intermedio:checked ~ main .filtros-jugadores label[for="nivel-intermedio"],
+#nivel-avanzado:checked ~ main .filtros-jugadores label[for="nivel-avanzado"],
+#disp-todos:checked ~ main .filtros-jugadores label[for="disp-todos"],
+#disp-manana:checked ~ main .filtros-jugadores label[for="disp-manana"],
+#disp-tarde:checked ~ main .filtros-jugadores label[for="disp-tarde"],
+#disp-noche:checked ~ main .filtros-jugadores label[for="disp-noche"] {
+    background: $primary-color;
+    border-color: $primary-color;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+
+// Ocultar jugadores según filtros (sin JavaScript)
+// Por defecto todos visibles
+.jugador-card {
+    display: flex;
+}
+
+// Filtros de nivel - ocultar cuando no coincide
+#nivel-principiante:checked ~ main .jugadores-grid .jugador-card:not([data-nivel="principiante"]),
+#nivel-intermedio:checked ~ main .jugadores-grid .jugador-card:not([data-nivel="intermedio"]),
+#nivel-avanzado:checked ~ main .jugadores-grid .jugador-card:not([data-nivel="avanzado"]) {
+    display: none;
+}
+
+// Filtros de disponibilidad - ocultar cuando no coincide
+#disp-manana:checked ~ main .jugadores-grid .jugador-card:not([data-disponibilidad*="manana"]),
+#disp-tarde:checked ~ main .jugadores-grid .jugador-card:not([data-disponibilidad*="tarde"]),
+#disp-noche:checked ~ main .jugadores-grid .jugador-card:not([data-disponibilidad*="noche"]) {
+    display: none;
+}
+
+
+
 .jugadores-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -38,6 +126,20 @@
     object-fit: cover;
 }
 
+.avatar-iniciales {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+    
+    &::before {
+        content: attr(data-iniciales);
+    }
+}
+
 .jugador-info {
     padding: $spacing-md;
 
@@ -62,11 +164,50 @@
     font-size: 14px;
 }
 
+// Ocultar el checkbox
+.toggle-contacto {
+    display: none;
+}
+
+// Info de contacto oculta por defecto
+.contacto-info {
+    display: none;
+    background: #f8f9fa;
+    padding: $spacing-md;
+    border-radius: $border-radius-sm;
+    margin-bottom: $spacing-sm;
+    
+    p {
+        margin: $spacing-xs 0;
+        color: #495057;
+    }
+}
+
+// Mostrar info cuando el checkbox está marcado
+.toggle-contacto:checked ~ .contacto-info {
+    display: block;
+}
+
+// Cambiar texto del botón según estado
 .boton-contacto {
     display: block;
     width: 100%;
     @include button-base($bg-color: $primary-color);
     font-size: 16px;
+    cursor: pointer;
+    
+    .texto-ocultar {
+        display: none;
+    }
+}
+
+.toggle-contacto:checked ~ .boton-contacto {
+    .texto-mostrar {
+        display: none;
+    }
+    .texto-ocultar {
+        display: inline;
+    }
 }
 
 // Rankings
