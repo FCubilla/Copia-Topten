@@ -513,6 +513,15 @@ button:active,
   margin-bottom: 24px;
 }
 
+/* Fondo fijo de la página */
+body {
+  background-image: url("../../assets/img/paleta-padel.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 /* El main ocupa el espacio restante para empujar el footer al fondo cuando la página es corta */
 main {
   flex: 1 0 auto;
@@ -525,8 +534,6 @@ main {
   justify-content: center;
   align-items: center;
   margin: 0 -20px 32px;
-  padding: 20px;
-  background: #f5f8fa;
 }
 
 .imagen-principal img {
@@ -596,15 +603,17 @@ main {
 }
 
 .welcome-text h2 {
-  color: #0a3d62;
+  color: white;
   font-size: 2.5em;
   margin-bottom: 16px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
 }
 
 .welcome-text p {
-  color: var(--text-color);
+  color: white;
   font-size: 1.2em;
   line-height: 1.6;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
 }
 
 .description-box {
@@ -622,6 +631,76 @@ main {
 }
 
 /* Estilos específicos para jugadores.html (anidados) */
+input[type=radio][name=nivel],
+input[type=radio][name=disponibilidad] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.filtros-jugadores h2 {
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+.filtros-jugadores label {
+  color: white;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+  font-weight: 600;
+}
+.filtros-jugadores .filtro-titulo {
+  color: white;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.filtros-jugadores .radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.filtros-jugadores .radio-group label {
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.filtros-jugadores .radio-group label:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+#nivel-todos:checked ~ main .filtros-jugadores label[for=nivel-todos],
+#nivel-principiante:checked ~ main .filtros-jugadores label[for=nivel-principiante],
+#nivel-intermedio:checked ~ main .filtros-jugadores label[for=nivel-intermedio],
+#nivel-avanzado:checked ~ main .filtros-jugadores label[for=nivel-avanzado],
+#disp-todos:checked ~ main .filtros-jugadores label[for=disp-todos],
+#disp-manana:checked ~ main .filtros-jugadores label[for=disp-manana],
+#disp-tarde:checked ~ main .filtros-jugadores label[for=disp-tarde],
+#disp-noche:checked ~ main .filtros-jugadores label[for=disp-noche] {
+  background: #0a3d62;
+  border-color: #0a3d62;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.jugador-card {
+  display: flex;
+}
+
+#nivel-principiante:checked ~ main .jugadores-grid .jugador-card:not([data-nivel=principiante]),
+#nivel-intermedio:checked ~ main .jugadores-grid .jugador-card:not([data-nivel=intermedio]),
+#nivel-avanzado:checked ~ main .jugadores-grid .jugador-card:not([data-nivel=avanzado]) {
+  display: none;
+}
+
+#disp-manana:checked ~ main .jugadores-grid .jugador-card:not([data-disponibilidad*=manana]),
+#disp-tarde:checked ~ main .jugadores-grid .jugador-card:not([data-disponibilidad*=tarde]),
+#disp-noche:checked ~ main .jugadores-grid .jugador-card:not([data-disponibilidad*=noche]) {
+  display: none;
+}
+
 .jugadores-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -673,6 +752,19 @@ main {
   object-fit: cover;
 }
 
+.avatar-iniciales {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+}
+.avatar-iniciales::before {
+  content: attr(data-iniciales);
+}
+
 .jugador-info {
   padding: 16px;
 }
@@ -706,6 +798,26 @@ main {
   font-size: 14px;
 }
 
+.toggle-contacto {
+  display: none;
+}
+
+.contacto-info {
+  display: none;
+  background: #f8f9fa;
+  padding: 16px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+.contacto-info p {
+  margin: 8px 0;
+  color: #495057;
+}
+
+.toggle-contacto:checked ~ .contacto-info {
+  display: block;
+}
+
 .boton-contacto {
   display: block;
   width: 100%;
@@ -726,6 +838,17 @@ main {
 }
 .boton-contacto {
   font-size: 16px;
+  cursor: pointer;
+}
+.boton-contacto .texto-ocultar {
+  display: none;
+}
+
+.toggle-contacto:checked ~ .boton-contacto .texto-mostrar {
+  display: none;
+}
+.toggle-contacto:checked ~ .boton-contacto .texto-ocultar {
+  display: inline;
 }
 
 .rankings {
@@ -766,6 +889,10 @@ main {
 /* Estilos específicos para partidos.html (anidados) */
 .proximos-partidos {
   margin-bottom: 32px;
+}
+.proximos-partidos h2 {
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
 }
 @media (max-width: 600px) {
   .proximos-partidos {
@@ -872,6 +999,10 @@ main {
 
 .canchas {
   margin-bottom: 32px;
+}
+.canchas h2 {
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
 }
 .canchas-grid {
   display: grid;
